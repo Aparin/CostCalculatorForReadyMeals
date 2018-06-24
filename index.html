@@ -1,0 +1,89 @@
+<script>
+    var receptName = 'Картошка с сыром и майонезом'; // введите название блюда, внутри кавычек
+    // Напишите список ингридиентов в формате "Название, единица измерения, цена, количество":
+    // десятичные числа писать через точку; в конце списка запятую ставить нельзя
+    var productList = [
+        "Картофель", "кг", 45, 0.5,
+        "Сыр российский", "кг", 275, 0.035,
+        "Молоко, 2.5%", "л", 60, 0.075,
+        "Соль", "кг", 40, 0.002,
+        "Хмели-сунели", "гр", 3, 5
+    ];
+    var numberOfServings = 3; // после знака '=' укажите количество порций и поставьте ';'
+
+    /*              Ниже ничего не трогать, если не понимаете, что там...             */
+</script>
+<style>
+    #headerCostCalculatorForReadyMeals {
+        text-align: center;
+        background: darkred;
+        padding: 5px;
+        font-size: 32px;
+        font-family: Georgia;
+        color: white;
+    }
+    
+    #bodyCostCalculatorForReadyMeal {
+        border: 1px lightgrey solid;
+        padding: 5px;
+    }
+    
+    #bodyCostCalculatorForReadyMeal span {
+        padding: 5px;
+    }
+    
+    table {
+        width: 100%;
+    }
+    
+    table th:first-child {
+        text-align: left;
+    }
+    
+    table td:first-child {
+        text-align: left;
+    }
+    
+    th,
+    tr,
+    td {
+        border: 1px dotted grey;
+        padding: 5px;
+        text-align: center;
+        font-family: Georgia;
+        font-size: 28px;
+    }
+</style>
+
+<div id='headerCostCalculatorForReadyMeals'>
+    <div>Калькулятор себестоимости блюда:<br></div>
+</div>
+
+<div id='bodyCostCalculatorForReadyMeal'>
+</div>
+
+<script>
+    var div = document.createElement("div");
+
+    // var node = document.createTextNode(`"${receptName}"`);
+    // div.appendChild(node);
+    div.appendChild(document.createTextNode(`"${receptName}"`)); // объедининие предыдущих 2 строк
+
+    // var div2 = document.getElementById("headerCostCalculatorForReadyMeals");
+    // div2.appendChild(div);
+    document.getElementById("headerCostCalculatorForReadyMeals").appendChild(div); // объедининие предыдущих 2 строк
+
+    var cost = 0;
+    var result = '<table><tr><th>Ингридиенты</th><th>ед. измерения</th><th>Цена</th><th>Количество</th><th>Себестоимость</th>';
+
+    for (i = 0; i + 4 <= productList.length; i += 4) {
+        result += `<tr><td>${productList[i]}</td><td>${productList[i+1]}</td><td>${productList[i+2]}</td><td>${productList[i+3]}</td><td>${(productList[i + 2] * productList[i + 3]).toFixed(2)} руб.</td>`;
+        cost += productList[i + 2] * productList[i + 3];
+    }
+    result += `<tr><th>Итого:</th><td></td><td></td><td></td><td><b>${cost.toFixed(2)} руб.</b></td>`;
+    result += `<tr><td>Количество порций:</td><td></td><td></td><td></td><td>${numberOfServings}</td>`;
+    result += `<tr><th>Себестоимость порции:</th><td></td><td></td><td></td><td><b>${(cost / numberOfServings).toFixed(2)} руб.</b></td>`;
+    result += '</table>';
+    document.getElementById('bodyCostCalculatorForReadyMeal').innerHTML = result;
+</script>
+<div id='headerCostCalculatorForReadyMeals'>Recepty-Redmond.ru</div>

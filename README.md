@@ -1,2 +1,4 @@
-Калькулятор себестоимости готовых блюд для сайта https://recepty-redmond.ru/
-Потрачено времени: 4 часа 22 мин.
+Калькулятор себестоимости готовых блюд для сайта recepty-redmond.ru
+Пример работы: https://recepty-redmond.ru/grechka-s-kuricej-v-multivarke-redmond/
+
+Для работы на локальной машине изменить файл 'CostCalculatorForReadyMeals/html.js'

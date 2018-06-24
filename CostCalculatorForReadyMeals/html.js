@@ -1,0 +1,1 @@
+document.writeln("<div id='headerCostCalculatorForReadyMeals'><div>Калькулятор себестоимости блюда:<br></div></div><div id='bodyCostCalculatorForReadyMeal'></div><div id='headerCostCalculatorForReadyMeals'>Recepty-Redmond.ru</div>");
